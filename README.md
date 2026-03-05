@@ -1,156 +1,252 @@
 # 🎬 AI Movie Insight Builder
 
-A production-ready Next.js application that analyzes any movie using its IMDb ID — fetching real audience reviews and using Gemini AI to generate intelligent sentiment summaries.
+A **production-ready full-stack Next.js application** that analyzes any movie using its **IMDb ID**.
+The app fetches **real audience reviews** and uses **Google Gemini AI** to generate intelligent **sentiment summaries and key themes** from viewer feedback.
 
-![Tech Stack](https://img.shields.io/badge/Next.js-14-black?logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwindcss) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)
+🌐 **Live Demo:**
+https://ai-movie-insight-builder-sage.vercel.app/
 
----
-
-## ✨ Features
-
-- **IMDb ID Input** — validated format, quick example shortcuts
-- **Movie Details** — poster, title, year, rating, cast, plot via OMDb API
-- **Audience Reviews** — up to 50 real reviews from TMDb
-- **AI Sentiment Analysis** — Gemini generates a 3–5 sentence summary, sentiment label (Positive / Mixed / Negative), and key themes
-- **Heuristic Fallback** — fully functional lexical analysis if no Gemini key is set
-- **Skeleton Loaders** — shimmer placeholders during data fetch
-- **Framer Motion** — smooth reveal animations throughout
-- **Responsive** — mobile-first, works on all screen sizes
-- **Error Handling** — user-friendly messages for all failure modes
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwindcss)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)
 
 ---
 
-## 🗂 Project Structure
+# 📸 Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home.png)
+
+### Movie Analysis
+
+![Movie Analysis](screenshots/movie-analysis.png)
+
+### AI Sentiment Summary
+
+![Sentiment Summary](screenshots/sentiment-summary.png)
+
+*(Replace screenshot names if your filenames are different.)*
+
+---
+
+# ✨ Features
+
+### 🎯 IMDb ID Input
+
+Users can enter a valid IMDb movie ID to instantly fetch movie insights. Example shortcuts allow quick testing.
+
+### 🎥 Movie Details
+
+Retrieves movie information such as:
+
+* Poster
+* Title
+* Release year
+* IMDb rating
+* Cast
+* Plot summary
+
+using the **OMDb API**.
+
+### 🗣 Audience Reviews
+
+Fetches up to **50 real audience reviews** from **TMDb** to analyze public opinion about the movie.
+
+### 🤖 AI Sentiment Analysis
+
+Uses **Google Gemini AI** to generate:
+
+* A **3–5 sentence sentiment summary**
+* A **sentiment label** (Positive / Mixed / Negative)
+* **Key discussion themes** extracted from reviews
+
+### 🧠 Heuristic Fallback
+
+If the Gemini API key is not configured, the system automatically switches to a **lexical sentiment analysis**, ensuring the application remains fully functional.
+
+### ⚡ Skeleton Loading
+
+Smooth **shimmer loading placeholders** are displayed while movie data and reviews are being fetched.
+
+### 🎞 Smooth Animations
+
+Uses **Framer Motion** for clean UI transitions and animated content reveals.
+
+### 📱 Responsive Design
+
+Mobile-first design built with **Tailwind CSS**, ensuring the application works across all screen sizes.
+
+### 🛡 Error Handling
+
+User-friendly error messages for:
+
+* Invalid IMDb IDs
+* API failures
+* Missing data
+
+---
+
+# 🧠 What This Project Demonstrates
+
+This project demonstrates:
+
+* Full-stack **Next.js application development**
+* Integration with **multiple external APIs**
+* **AI-powered sentiment analysis**
+* Clean **component-based React architecture**
+* **TypeScript-based type safety**
+* Modern **UI/UX with Tailwind CSS**
+* Production deployment using **Vercel**
+
+---
+
+# 🗂 Project Structure
 
 ```
 /
 ├── app/
 │   ├── components/
-│   │   ├── MovieInput.tsx       # IMDb ID form with validation
-│   │   ├── MovieCard.tsx        # Movie header (poster, title, rating)
-│   │   ├── CastList.tsx         # Cast grid + plot summary
-│   │   ├── SentimentSummary.tsx # AI sentiment display + breakdown bars
-│   │   ├── ReviewList.tsx       # Paginated review cards
-│   │   ├── SkeletonLoader.tsx   # Loading skeleton
-│   │   └── ErrorDisplay.tsx     # Error UI
+│   │   ├── MovieInput.tsx
+│   │   ├── MovieCard.tsx
+│   │   ├── CastList.tsx
+│   │   ├── SentimentSummary.tsx
+│   │   ├── ReviewList.tsx
+│   │   ├── SkeletonLoader.tsx
+│   │   └── ErrorDisplay.tsx
+│
 │   ├── lib/
-│   │   ├── types.ts             # Shared TypeScript interfaces
-│   │   ├── fetchMovie.ts        # OMDb API integration
-│   │   ├── fetchReviews.ts      # TMDb reviews API
-│   │   └── sentimentAnalyzer.ts # Gemini AI + heuristic fallback
+│   │   ├── types.ts
+│   │   ├── fetchMovie.ts
+│   │   ├── fetchReviews.ts
+│   │   └── sentimentAnalyzer.ts
+│
 │   ├── layout.tsx
-│   └── page.tsx                 # Main app page
+│   └── page.tsx
+│
 ├── pages/api/
-│   ├── movie.ts                 # GET /api/movie?id=ttXXX
-│   └── reviews.ts               # GET /api/reviews?id=ttXXX
+│   ├── movie.ts
+│   └── reviews.ts
+│
 ├── styles/
 │   └── globals.css
+│
+├── screenshots/
 ├── __tests__/
-│   └── sentiment.test.ts        # Vitest tests
-└── .env.local.example
+│   └── sentiment.test.ts
+│
+└── README.md
 ```
 
 ---
 
-## 🚀 Setup Instructions
+# 🚀 Setup Instructions
 
-### 1. Clone and install
+## 1️⃣ Clone the repository
 
-```bash
+```
 git clone https://github.com/your-username/ai-movie-insight-builder
 cd ai-movie-insight-builder
+```
+
+---
+
+## 2️⃣ Install dependencies
+
+```
 npm install
 ```
 
-### 2. Get API keys
+---
 
-| Service | URL | Free Tier |
-|---------|-----|-----------|
-| OMDb API | https://www.omdbapi.com/apikey.aspx | ✅ 1,000 req/day |
-| TMDb API | https://www.themoviedb.org/settings/api | ✅ Unlimited |
-| Gemini API | https://aistudio.google.com/ | ✅ Free credits |
+## 3️⃣ Configure environment variables
 
-### 3. Configure environment
+Create a `.env.local` file in the root directory.
 
-```bash
-cp .env.local.example .env.local
-# Edit .env.local and fill in your keys
+```
+OMDB_API_KEY=your_omdb_api_key
+TMDB_API_KEY=your_tmdb_api_key
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
-### 4. Run locally
+---
 
-```bash
+## 4️⃣ Run the development server
+
+```
 npm run dev
-# Open http://localhost:3000
 ```
 
-### 5. Run tests
+Open:
 
-```bash
+```
+http://localhost:3000
+```
+
+---
+
+## 5️⃣ Run tests
+
+```
 npm test
 ```
 
 ---
 
-## 🧠 How Sentiment Analysis Works
+# 🔑 Environment Variables
 
-1. **Review Collection** — Up to 50 reviews are fetched from the TMDb reviews API
-2. **AI Analysis** (if `GEMINI_API_KEY` is set):
-   - Reviews are batched into a prompt (max 25 reviews, ~300 chars each)
-   - Gemini returns structured JSON: label, score, summary, breakdown percentages, key themes
-3. **Heuristic Fallback** (no API key needed):
-   - Each review is tokenized and scanned against curated positive/negative word sets
-   - Numeric ratings (if available) boost the score
-   - Results are bucketed into Positive / Mixed / Negative thresholds
-4. **Display** — Animated breakdown bars + AI-generated (or heuristic) summary paragraph
+| Variable       | Required | Description                   |
+| -------------- | -------- | ----------------------------- |
+| OMDB_API_KEY   | Yes      | Fetch movie details           |
+| TMDB_API_KEY   | Yes      | Fetch audience reviews        |
+| GEMINI_API_KEY | Optional | Enables AI sentiment analysis |
+
+If Gemini is not provided, the app automatically uses **heuristic sentiment analysis**.
 
 ---
 
-## 🌐 Deployment (Vercel)
+# 🛠 Tech Stack
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+**Frontend**
 
-# Deploy
-vercel
+* Next.js 14
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
 
-# Set environment variables in Vercel dashboard:
-# Settings → Environment Variables → add OMDB_API_KEY, TMDB_API_KEY, GEMINI_API_KEY
-```
+**Backend**
 
-Or use the one-click deploy:
+* Next.js API Routes
+* Node.js
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+**APIs**
 
----
+* OMDb API
+* TMDb API
+* Google Gemini AI
 
-## 🔑 Environment Variables
+**Testing**
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `OMDB_API_KEY` | ✅ Yes | OMDb movie data |
-| `TMDB_API_KEY` | ✅ Yes | TMDb reviews |
-| `GEMINI_API_KEY` | Optional | Gemini sentiment (falls back to heuristic) |
+* Vitest
 
----
+**Deployment**
 
-## 🛠 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 14 (App Router + Pages API routes) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS 3 |
-| Animation | Framer Motion 11 |
-| Movie Data | OMDb API |
-| Reviews | TMDb API |
-| AI | Google Gemini |
-| Testing | Vitest |
-| Deployment | Vercel |
+* Vercel
 
 ---
 
-## 📝 License
+# 🌐 Deployment
 
-MIT
+This project is deployed on **Vercel**.
+
+Live application:
+
+https://ai-movie-insight-builder-sage.vercel.app/
+
+---
+
+# 📝 License
+
+MIT License

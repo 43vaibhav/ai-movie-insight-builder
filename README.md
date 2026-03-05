@@ -144,7 +144,7 @@ This project demonstrates:
 ## 1️⃣ Clone the repository
 
 ```
-git clone https://github.com/your-username/ai-movie-insight-builder
+git clone https://github.com/43vaibhav/ai-movie-insight-builder.git
 cd ai-movie-insight-builder
 ```
 

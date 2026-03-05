@@ -13,21 +13,19 @@ https://ai-movie-insight-builder-sage.vercel.app/
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
 ### Home Page
+![Home Page](screenshots/homepage.png)
 
-![Home Page](screenshots/home.png)
+### Movie Retrieval
+![Movie Retrieval](screenshots/retrieval.png)
 
-### Movie Analysis
+### Cast & Review Section
+![Cast Review](screenshots/castReview.png)
 
-![Movie Analysis](screenshots/movie-analysis.png)
-
-### AI Sentiment Summary
-
-![Sentiment Summary](screenshots/sentiment-summary.png)
-
-*(Replace screenshot names if your filenames are different.)*
+### Audience Reviews
+![Audience Reviews](screenshots/reviews.png)
 
 ---
 
